@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Audio } from 'expo-av';
 
 export default function audioRecord() {
@@ -57,11 +57,18 @@ export default function audioRecord() {
 
   return (
     <View style={styles.container}>
-      <Button
-        title={recording ? 'Stop Recording' : 'Start Recording'}
+      <TouchableOpacity
+        style={styles.button}
         onPress={recording ? stopRecording : startRecording}
-      />
-      <Button title='Play Sound' onPress={() => playSound()} />
+      >
+        <Text style={styles.text}>
+          {' '}
+          {recording ? 'Stop Recording' : 'Start Recording'}
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => playSound()}>
+        <Text style={styles.text}> Play Sound</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -72,5 +79,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ecf0f1',
     padding: 10,
+  },
+  button: {
+    marginVertical: 5,
+    backgroundColor: '#775ada',
+    padding: 10,
+  },
+  text: {
+    color: 'white',
   },
 });
