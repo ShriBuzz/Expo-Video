@@ -18,6 +18,12 @@ const Home = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Import</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => navigation.navigate('Audio')}
+      >
+        <Text style={styles.buttonText}>Audio</Text>
+      </TouchableOpacity>
       <StatusBar style='auto' />
     </View>
   );
